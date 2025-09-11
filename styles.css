@@ -946,34 +946,42 @@ body {
   margin-right: 8px;
 }
 
+/* Default buttons (Starter & Team) */
+/* Base button style */
 .pricing-card .btn {
-  background: linear-gradient(135deg, #00ffcc, #00bfff);
-  border: none;
-  padding: 12px 25px;
-  border-radius: 8px;
-  font-size: 1rem;
-  color: #fff;
+  padding: 14px 36px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.pricing-card .btn:hover {
-  background: linear-gradient(135deg, #00bfff, #0099ff);
+/* Outline style (Starter & Team) */
+.pricing-card.outline .btn {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
 }
 
-.pricing-card.featured {
-  background: rgba(255, 255, 255, 0.15);
+.pricing-card.outline .btn:hover {
+  background: #fff;
+  color: #2f1893;  /* purple text on hover */
+}
+
+/* Filled style (Professional) */
+.pricing-card.filled .btn {
+  background: #ff0057;   /* pink */
   border: none;
-  transform: scale(1.05);
+  color: #fff;
 }
 
-.pricing-card .highlight {
-  background: #ff0057;
-}
-
-.pricing-card .highlight:hover {
+.pricing-card.filled .btn:hover {
   background: #ff3369;
 }
+
+
+
 
 
 /* Footer */
