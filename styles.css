@@ -212,6 +212,7 @@ body {
   background: linear-gradient(rgba(47, 24, 147, 0.8), rgba(47, 24, 147, 0.8)), 
               url("asests/img3.jpg") no-repeat center center/cover;
   color: #fff;
+  position: relative;
 }
 
 .features-container {
@@ -220,12 +221,12 @@ body {
   gap: 80px;
 }
 
-/* MacBook */
+/* Move MacBook left */
 .macbook {
   position: relative;
-  width: 500px; /* Bigger */
+  width: 480px;
   flex-shrink: 0;
-  transform: translateX(-40px); /* Move left */
+  transform: translateX(-60px); /* pushes left */
 }
 
 .macbook-frame {
@@ -235,7 +236,7 @@ body {
 
 .macbook-screen {
   position: absolute;
-  top: 12%;   /* Adjust this to fit screen */
+  top: 12%;
   left: 11%;
   width: 78%;
   height: 70%;
@@ -249,7 +250,7 @@ body {
   object-fit: cover;
 }
 
-/* Text */
+/* Features Text */
 .features-text {
   max-width: 500px;
 }
@@ -260,55 +261,65 @@ body {
 }
 
 .feature-items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
   margin-top: 30px;
-}
-
-.feature-items {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
 }
 
 .feature-item {
   display: flex;
   align-items: flex-start;
-  gap: 15px;
+  gap: 12px;
 }
 
 .feature-item i {
-  font-size: 22px;
-  color: #fff;
-  background: #2f1893;  /* purple circle */
-  padding: 14px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-/* Hover effect */
-.feature-item i:hover {
-  transform: scale(1.1);
-  background: #482be7; /* lighter purple on hover */
+  font-size: 28px;
+  color: #fff;       /* white icons */
+  background: none;  /* remove background */
+  border: none;      /* remove border */
 }
 
 .feature-item h4 {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 600;
-  margin-bottom: 5px;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 6px;
 }
 
 .feature-item p {
-  font-size: 15px;
-  opacity: 0.9;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
   line-height: 1.5;
 }
 
-
-.feature-items div {
-  margin-bottom: 20px;
+/* Vertical Pagination Dots */
+.vertical-dots {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
+
+.vertical-dots .dot {
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  opacity: 0.4;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.vertical-dots .dot.active,
+.vertical-dots .dot:hover {
+  background: #482be7;
+  opacity: 1;
+}
+
 
 
 /* Form Section */
@@ -1049,4 +1060,100 @@ body {
   padding-top: 15px;
   font-size: 0.85rem;
   opacity: 0.8;
+}
+
+
+
+/* Fix global scroll bar issue */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Pricing buttons fix */
+.pricing-card .btn {
+  background: linear-gradient(135deg, #00ffcc, #00bfff);
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.pricing-card .btn:hover {
+  background: linear-gradient(135deg, #00bfff, #0099ff);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .features-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .macbook {
+    transform: none;
+    margin-bottom: 30px;
+    width: 90%;
+  }
+
+  .features-text {
+    max-width: 100%;
+  }
+}
+
+
+/* Tablet (<= 992px) */
+@media (max-width: 992px) {
+  .features-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .macbook {
+    transform: none;   /* remove left push */
+    margin-bottom: 30px;
+  }
+
+  .vertical-dots {
+    display: none;  /* hide dots on tablets/mobiles */
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+}
+
+/* Mobile (<= 576px) */
+@media (max-width: 576px) {
+  .navbar ul {
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 14px;
+  }
+
+  .form-container {
+    flex-direction: column;
+  }
+
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .works-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .team-grid {
+    justify-content: center;
+  }
 }
