@@ -963,7 +963,7 @@ body {
 
 .pricing-card.featured {
   background: rgba(255, 255, 255, 0.15);
-  border: 2px solid #00ffcc;
+  border: none;
   transform: scale(1.05);
 }
 
